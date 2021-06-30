@@ -25,7 +25,7 @@
           <checkbox
             :text="$t('settings.darkTheme')"
             :value="isDarkTheme"
-            @click="changeIsDarkTheme"
+            @click="testIsDarkTheme"
           />
         </div>
         <!-- <div class="form__field">
@@ -133,15 +133,20 @@ export default class SettingsModal extends Vue {
   }
 
   _isTouchDevice: boolean = false
-  public changeIsDarkTheme() {
-    const module = getModule(AppSettings, this.$store)
-    const oldValue = module.getIsDarkTheme
-    if (oldValue == true) {
-      module.setTheme('base')
-    } else {
-      module.setTheme('dark')
-    }
+  // public changeIsDarkTheme() {
+  //   const module = getModule(AppSettings, this.$store)
+  //   const oldValue = module.getIsDarkTheme
+  //   if (oldValue == true) {
+  //     module.setTheme('base')
+  //   } else {
+  //     module.setTheme('dark')
+  //   }
+  // }
+
+  public testIsDarkTheme() {
+    console.log('test successful')
   }
+
   public get isDarkTheme() {
     const module = getModule(AppSettings, this.$store)
     return module.getIsDarkTheme
