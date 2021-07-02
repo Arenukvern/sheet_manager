@@ -81,6 +81,7 @@ import AppSettings from '@/StorageCore/AppSettings'
 import Checkbox from '@/GraphicCore/StatelessWidget/Checkbox.vue'
 import { AlertTypes } from '@/types/SheetManager'
 import NModal from './NModal.vue'
+import testVuex from '@/StorageCore/testVuex'
 import {
   Languages,
   SettingsLangInterface,
@@ -144,7 +145,14 @@ export default class SettingsModal extends Vue {
   // }
 
   public testIsDarkTheme() {
-    console.log('test successful')
+    const module = getModule(testVuex, this.$store)
+    var oldValue = module.testTheme
+    if (oldValue == 'dark') {
+      oldValue = module.decr()
+    } else {
+      oldValue = module.incr()
+    }
+    console.log(oldValue)
   }
 
   public get isDarkTheme() {
