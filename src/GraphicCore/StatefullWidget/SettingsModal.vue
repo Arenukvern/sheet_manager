@@ -25,7 +25,7 @@
           <checkbox
             :text="$t('settings.darkTheme')"
             :value="isDarkTheme"
-            @click="testIsDarkTheme"
+            @click="changeTheme"
           />
         </div>
         <!-- <div class="form__field">
@@ -81,7 +81,7 @@ import AppSettings from '@/StorageCore/AppSettings'
 import Checkbox from '@/GraphicCore/StatelessWidget/Checkbox.vue'
 import { AlertTypes } from '@/types/SheetManager'
 import NModal from './NModal.vue'
-import testVuex from '@/StorageCore/testVuex'
+import SwitchTheme from '@/StorageCore/SwitchTheme'
 import {
   Languages,
   SettingsLangInterface,
@@ -144,15 +144,19 @@ export default class SettingsModal extends Vue {
   //   }
   // }
 
-  public testIsDarkTheme() {
-    const module = getModule(testVuex, this.$store)
-    var oldValue = module.testTheme
-    if (oldValue == 'dark') {
-      oldValue = module.decr()
-    } else {
-      oldValue = module.incr()
-    }
+  public changeTheme() {
+    var oldValue = this.$store.getters.gettTheme
+
     console.log(oldValue)
+
+    //   const module = getModule(testVuex, this.$store)
+    //   var oldValue = module.testTheme
+    //   if (oldValue == 'dark') {
+    //     oldValue = module.decr()
+    //   } else {
+    //     oldValue = module.incr()
+    //   }
+    //   console.log(oldValue)
   }
 
   public get isDarkTheme() {
