@@ -149,14 +149,12 @@ export default class SettingsModal extends Vue {
 
     console.log(oldValue)
 
-    //   const module = getModule(testVuex, this.$store)
-    //   var oldValue = module.testTheme
-    //   if (oldValue == 'dark') {
-    //     oldValue = module.decr()
-    //   } else {
-    //     oldValue = module.incr()
-    //   }
-    //   console.log(oldValue)
+    if (oldValue == 'dark') {
+      this.$store.dispatch('varyTheme', 'base')
+    } else {
+      this.$store.dispatch('varyTheme', 'dark')
+    }
+    console.log(oldValue)
   }
 
   public get isDarkTheme() {

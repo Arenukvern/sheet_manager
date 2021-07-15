@@ -3,9 +3,17 @@ export default {
     theme: 'dark',
   },
 
-  action: {},
+  action: {
+    async varyTheme(context: any, newTheme: string) {
+      context.commit('updateTheme', newTheme)
+    },
+  },
 
-  mutations: {},
+  mutations: {
+    updateTheme(state: any, newtheme: string) {
+      state.theme = newtheme
+    },
+  },
 
   getters: {
     gettTheme(state: any) {
