@@ -1,11 +1,12 @@
 export default {
+  namespaced: true,
   state: {
     theme: 'dark',
   },
 
-  action: {
-    async varyTheme(context: any, newTheme: string) {
-      context.commit('updateTheme', newTheme)
+  getters: {
+    theme(state: any) {
+      return state.theme
     },
   },
 
@@ -15,9 +16,9 @@ export default {
     },
   },
 
-  getters: {
-    gettTheme(state: any) {
-      return state.theme
+  actions: {
+    async updateTheme(context: any, newTheme: string) {
+      context.commit('updateTheme', newTheme)
     },
   },
 }

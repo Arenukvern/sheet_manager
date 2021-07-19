@@ -144,17 +144,19 @@ export default class SettingsModal extends Vue {
   //   }
   // }
 
-  public changeTheme() {
-    var oldValue = this.$store.getters.gettTheme
+  public async changeTheme() {
+    const oldValue = this.$store.getters['SwitchTheme/theme']
 
     console.log(oldValue)
 
     if (oldValue == 'dark') {
-      this.$store.dispatch('varyTheme', 'base')
+      await this.$store.dispatch('SwitchTheme/updateTheme', 'base')
     } else {
-      this.$store.dispatch('varyTheme', 'dark')
+      await this.$store.dispatch('SwitchTheme/updateTheme', 'dark')
     }
-    console.log(oldValue)
+
+    const newValue = this.$store.getters['SwitchTheme/gettTheme']
+    console.log(newValue)
   }
 
   public get isDarkTheme() {

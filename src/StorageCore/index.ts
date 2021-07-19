@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import Sheets from './Sheets'
 import AppSettings from './AppSettings'
 import SwitchTheme from './SwitchTheme'
+
 Vue.use(Vuex)
 
 export const store = new Vuex.Store({
